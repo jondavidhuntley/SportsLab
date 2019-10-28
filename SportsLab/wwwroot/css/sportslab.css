@@ -1,0 +1,112 @@
+﻿.failurebox {
+    display: none;
+    clear: left;
+    background: #f1d74c;
+    min-height: 30px;
+    width: 100%;
+    padding: 3px;
+    z-index: 9;
+    position: absolute;
+    top: 50px;
+}
+
+.failureboxclose {
+    float: right;
+    width: 10%;
+    text-align: right;
+    margin-right: 3px;
+}
+
+.failureboxcontent {
+    float: left;
+    width: 88%
+}
+
+.boxcommon {
+    background-color: #fff;
+    border: solid 1px #cdcdcd;
+    border-radius: 10px;
+    margin: 3px;
+    padding: 13px;
+}
+
+
+.lineitem {
+    border-bottom: dotted 0px #cdcdcd;
+    display: inline-block;
+    vertical-align: top;
+    width: 98%;
+    margin: 1px;
+    line-height:30px;
+}
+
+a:hover .lineitem {
+    font-style: italic;
+    /*border: solid 1px #666;*/
+    background-color:deepskyblue;
+}
+
+.lineitemheader
+{
+    /*border-bottom:solid 1px #ddd;*/
+}
+.cellheader{
+    font-size:medium;
+    font-weight:bold;
+}
+
+.itemlistcontainer {
+    padding-top: 10px;
+    height: 500px;
+    overflow-y: scroll;
+    margin-right: 10px;
+    border-top: solid 1px #ddd;
+}
+
+.teamcell {
+    margin-left: 3px;
+    margin-right: 5px;
+    float: left;
+    min-width: 160px;
+}
+
+.teamboolcell {
+    margin-left: 3px;
+    margin-right: 5px;
+    float: left;
+    min-width: 50px;
+    text-align:center;
+}
+
+.teamidcell {
+    margin-left: 3px;
+    margin-right: 10px;
+    float: left;
+    min-width: 70px;
+    text-align: right;
+}
+
+.stillintherunning {
+    background-color: #b6f542;
+}
+
+.eliminated {
+    background-color: lightpink;
+}
+
+.navlinkscontainer {
+    margin-top:10px; 
+    margin-bottom:20px; 
+    border:solid 0px #ddd; 
+    display:block; 
+    height:30px;
+}
+
+.team-entry{
+    min-height:26px;
+}
+
+.ddlist {
+    font-size: medium;
+    min-height: 26px;
+}

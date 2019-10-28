@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "TeamDatabase": "Database=SportsLab;Server=sql9.hostinguk.net;Uid=sportsuser;Password=sp0rting"
+  }
+}

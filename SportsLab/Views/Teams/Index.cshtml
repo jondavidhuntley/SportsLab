@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Listed Teams";
+}
+
+<h2>Football Teams</h2>
+<div class="container">
+    <div style="width:68%; float:left">
+        <div class="lineitem lineitemheader">
+            <div class="teamidcell cellheader">
+                Team Id
+            </div>
+            <div class="teamcell cellheader">
+                Team Name
+            </div>
+            <div class="teamcell cellheader">
+                Country
+            </div>
+            <div class="teamboolcell cellheader">
+                Eliminated
+            </div>
+        </div>
+        <div class="itemlistcontainer">
+            @foreach (var item in Model.Teams)
+            {
+                <a href="~/Teams/Team/@item.Id" title="Click to see Team details">
+                    <div class="lineitem @item.Status">
+                        <div class="teamidcell">
+                            @item.Id
+                        </div>
+                        <div class="teamcell">
+                            <b>@item.Name</b>
+                        </div>
+                        <div class="teamcell">
+                            @item.Country
+                        </div>
+                        <div class="teamboolcell">
+                            @if (@item.Eliminated)
+                            {
+                                <text><b>Yes</b></text>
+                            }
+                            else
+                            {
+                                <text>No</text>
+                            }
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+    <div style="width:30%; float:left; margin-top:10px; margin-left:16px">
+        <div class="boxcommon">
+            <p><b>@Model.TotalTeams</b> Teams found</p>
+            <p>Click on any team row to go to the Team Details Page where you can make changes or view the team's UEFA Profile.</p>            
+        </div>
+    </div>
+</div>

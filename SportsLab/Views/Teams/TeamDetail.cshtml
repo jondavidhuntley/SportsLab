@@ -1,0 +1,73 @@
+﻿@model SportsLab.Models.TeamViewModel
+
+@{
+    ViewData["Title"] = "Team Details";
+}
+
+<div>
+    <h3>@Html.DisplayFor(model => model.TeamSummary)</h3>
+    <hr />
+    <div class="navlinkscontainer">
+        <div style="float:left; width:50%">
+            <a href="@Html.DisplayFor(model => model.ProfileURL)" target="_blank" title="Click to see UAFE Profile">UEFA Profile</a> |
+            <a asp-action="Index" title="Click to return back to Team List">Back to List</a>
+        </div>
+        <div style="float:right; width:50%">            
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-2">
+            <img src="@Html.DisplayFor(model => model.LogoUrl)" height="100" width="100" border="0" />
+        </div>
+        <div class="col-md-8">
+
+            <div id="divEditBox" class="boxcommon" style="max-width:500px">
+                @using (Html.BeginForm("TeamDetail", "Teams", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.Team.Id)
+                    @Html.HiddenFor(model => model.Action)
+                    @Html.HiddenFor(model => model.TeamSummary)
+
+                    <h3>Update Team</h3>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(p => p.Team.Name, new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Team.Name, new { @class = "form-control team-entry" })
+                                @Html.ValidationMessageFor(model => model.Team.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(p => p.Team.Country, new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(x => x.Team.Country, new SelectList(Model.Countries), "Select a country...", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Team.Country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Team.Eliminated, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.Team.Eliminated)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal">
+                            <hr />
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-8">
+                                    <input type="submit" value="Save Changes" class="btn btn-primary" />&nbsp;
+                                    <button class="btn btn-default" onclick="location.href='@Url.Action("Index", "Teams")';return false;">Cancel</button>&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>        
+</div>

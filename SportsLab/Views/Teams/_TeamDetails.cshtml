@@ -1,0 +1,17 @@
+﻿
+@using SportsLabs.Domain.Entities;
+@model FootballTeam
+
+<div>
+    <a href="~/Teams/TeamDetail?Id=@Model.Id&returnUrl=">
+        <div class="gridplantbox">           
+            <div class="gridplantheader">
+                @Model.Name
+            </div>
+
+            <div style="padding:3px; min-height:196px; top:-30px; position:relative;">
+                @Model.Country
+            </div>
+        </div>
+    </a>
+</div>
